@@ -6,6 +6,13 @@
     <groupId>org.example</groupId>
     <artifactId>EasterLogging</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <developers>
+        <developer>
+            <id>rubimaistro</id>
+            <name>Ruben Deák</name>
+            <email>rubendeak15@gmail.com</email>
+        </developer>
+    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

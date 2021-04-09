@@ -1,0 +1,38 @@
+<Configuration status="debug">
+    <Properties>
+        <Property name="LOG_PATTERN">%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{${LOG_PATTERN}}"/>
+        </Console>
+        <File name="Question" fileName="Questions.log" append="false">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <MarkerFilter marker="QUESTION" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+        <File name="Statement" fileName="Statements.log" append="false">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <MarkerFilter marker="STATEMENT" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+        <File name="Other" fileName="OtherMessage.log" append="false">
+            <PatternLayout pattern="${LOG_PATTERN}%X{key}"/>
+            <NoMarkerFilter onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+        <File name="Blocking" fileName="Győrfi_Pál.log" append="dalse">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <TimeFilter start="20:00:00" end="05:00:00" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="all">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="Question"/>
+            <AppenderRef ref="Statement"/>
+            <AppenderRef ref="Other"/>
+            <AppenderRef ref="Blocking"/>
+        </Root>
+        <Logger name="EasterMain.Main" additivity="true">
+            <AppenderRef ref="Console"/>
+        </Logger>
+    </Loggers>
+</Configuration>

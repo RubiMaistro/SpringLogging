@@ -1,6 +1,6 @@
 <Configuration status="debug">
     <Properties>
-        <Property name="LOG_PATTERN">%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
+        <Property name="LOG_PATTERN">%d{HH:mm:ss} [%t] %-5level %logger{36} - %X{} %msg%n</Property>
     </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">

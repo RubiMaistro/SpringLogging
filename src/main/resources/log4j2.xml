@@ -1,10 +1,10 @@
 <Configuration status="debug">
     <Properties>
-        <Property name="LOG_PATTERN">%d{HH:mm:ss} [%t] %-5level %logger{36} - %X{} %msg%n</Property>
+        <Property name="LOG_PATTERN">%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Property>
     </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%highlight{${LOG_PATTERN}}"/>
+            <PatternLayout pattern="%highlight{${LOG_PATTERN}}{DEBUG = bright magenta}"/>
         </Console>
         <File name="Question" fileName="Questions.log" append="false">
             <PatternLayout pattern="${LOG_PATTERN}"/>
@@ -25,7 +25,6 @@
     </Appenders>
     <Loggers>
         <Root level="all">
-            <AppenderRef ref="Console"/>
             <AppenderRef ref="Question"/>
             <AppenderRef ref="Statement"/>
             <AppenderRef ref="Other"/>

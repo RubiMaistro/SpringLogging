@@ -20,23 +20,29 @@ public class Main {
                 "El akart hervadni,",
                 "Szabad-e locsolni?"};
 
-        //logger.traceEntry();
+        /**
+         * logger.traceEntry();
+         **/
+
         int count = 0;
         while(count < number) {
-            ThreadContext.push(UUID.randomUUID().toString());
-            logger.debug("Message");
             for (int i = 0; i < vers.length; i++) {
                 String line = vers[i];
-                if (line.endsWith("?"))
-                    logger.debug(QUESTION_MARKER, line, vers[i]);
+                ThreadContext.put(String.valueOf(i),vers[i]);
+                if (line.endsWith("?")) {
+                    logger.debug(QUESTION_MARKER,
+                            ThreadContext.get(String.valueOf(i)));
+                }
                 else if (line.endsWith("."))
-                    logger.debug(STATEMENT_MARKER, line, vers[i]);
+                    logger.debug(STATEMENT_MARKER,
+                            ThreadContext.get(String.valueOf(i)));
                 else
-                    logger.debug(line, vers[i]);
+                    logger.debug(ThreadContext.get(String.valueOf(i)));
             }
             count++;
         }
-
-        //logger.traceExit();
+        /**
+         * logger.traceExit();
+         * */
     }
 }
